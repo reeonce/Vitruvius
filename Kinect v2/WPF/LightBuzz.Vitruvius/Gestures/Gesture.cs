@@ -49,7 +49,7 @@ namespace LightBuzz.Vitruvius
         /// <summary>
         /// The maximum number of frames allowed for a paused gesture.
         /// </summary>
-        readonly int MAX_PAUSE_COUNT = 10;
+        readonly int MAX_PAUSE_COUNT = 2;
 
         #endregion
 
@@ -63,7 +63,7 @@ namespace LightBuzz.Vitruvius
         /// <summary>
         /// The number of frames to pause for when a pause is initiated.
         /// </summary>
-        int _pausedFrameCount = 10;
+        int _pausedFrameCount = 2;
 
         /// <summary>
         /// The current frame.

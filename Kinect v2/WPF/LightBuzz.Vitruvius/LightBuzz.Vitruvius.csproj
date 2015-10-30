@@ -81,6 +81,7 @@
     <Compile Include="Core\Visualization.cs" />
     <Compile Include="Extensions\BitmapExtensions.cs" />
     <Compile Include="Extensions\BodyExtensions.cs" />
+    <Compile Include="Extensions\CameraSpacePointExtension.cs" />
     <Compile Include="Extensions\MathExtensions.cs" />
     <Compile Include="Extensions\SerializationExtensions.cs" />
     <Compile Include="Extensions\UIExtensions.cs" />
@@ -91,6 +92,10 @@
     <Compile Include="Gestures\GestureType.cs" />
     <Compile Include="Gestures\IGestureSegment.cs" />
     <Compile Include="Gestures\NamespaceDoc.cs" />
+    <Compile Include="Gestures\Segments\HandCloseLeftSegments.cs" />
+    <Compile Include="Gestures\Segments\ForwardRightSegments.cs" />
+    <Compile Include="Gestures\Segments\HandCloseRightSegments.cs" />
+    <Compile Include="Gestures\Segments\HandRopeRightSegments.cs" />
     <Compile Include="Gestures\Segments\JoinedHandsSegment.cs" />
     <Compile Include="Gestures\Segments\MenuSegments.cs" />
     <Compile Include="Gestures\Segments\SwipeDownSegments.cs" />

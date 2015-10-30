@@ -46,7 +46,7 @@ namespace LightBuzz.Vitruvius.Gestures
         public GesturePartResult Update(Body body)
         {
             // //left hand in front of left Shoulder
-            if (body.Joints[JointType.HandLeft].Position.Z < body.Joints[JointType.ElbowLeft].Position.Z && body.Joints[JointType.HandRight].Position.Y < body.Joints[JointType.SpineBase].Position.Y)
+            if (body.Joints[JointType.HandLeft].Position.Z < body.Joints[JointType.ElbowLeft].Position.Z && body.Joints[JointType.HandRight].Position.Y < body.Joints[JointType.SpineShoulder].Position.Y)
             {
                 // Debug.WriteLine("GesturePart 0 - left hand in front of left Shoulder - PASS");
                 // //left hand below shoulder height but above hip height
@@ -86,7 +86,7 @@ namespace LightBuzz.Vitruvius.Gestures
         public GesturePartResult Update(Body body)
         {
             // //left hand in front of left Shoulder
-            if (body.Joints[JointType.HandLeft].Position.Z < body.Joints[JointType.ElbowLeft].Position.Z && body.Joints[JointType.HandRight].Position.Y < body.Joints[JointType.SpineBase].Position.Y)
+            if (body.Joints[JointType.HandLeft].Position.Z < body.Joints[JointType.ElbowLeft].Position.Z && body.Joints[JointType.HandRight].Position.Y < body.Joints[JointType.SpineShoulder].Position.Y)
             {
                 // Debug.WriteLine("GesturePart 1 - left hand in front of left Shoulder - PASS");
                 // /left hand below shoulder height but above hip height
@@ -126,7 +126,7 @@ namespace LightBuzz.Vitruvius.Gestures
         public GesturePartResult Update(Body body)
         {
             // //left hand in front of left Shoulder
-            if (body.Joints[JointType.HandLeft].Position.Z < body.Joints[JointType.ElbowLeft].Position.Z && body.Joints[JointType.HandRight].Position.Y < body.Joints[JointType.SpineBase].Position.Y)
+            if (body.Joints[JointType.HandLeft].Position.Z < body.Joints[JointType.ElbowLeft].Position.Z && body.Joints[JointType.HandRight].Position.Y < body.Joints[JointType.SpineShoulder].Position.Y)
             {
                 // //left hand below shoulder height but above hip height
                 if (body.Joints[JointType.HandLeft].Position.Y < body.Joints[JointType.Head].Position.Y && body.Joints[JointType.HandLeft].Position.Y > body.Joints[JointType.SpineBase].Position.Y)

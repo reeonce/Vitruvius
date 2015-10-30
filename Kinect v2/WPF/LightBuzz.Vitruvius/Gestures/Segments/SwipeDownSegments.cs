@@ -47,13 +47,13 @@ namespace LightBuzz.Vitruvius.Gestures
         {
 
             // right hand in front of right shoulder
-            if (body.Joints[JointType.HandRight].Position.Z < body.Joints[JointType.ElbowRight].Position.Z && body.Joints[JointType.HandRight].Position.Y < body.Joints[JointType.SpineShoulder].Position.Y)
+            if (body.Joints[JointType.HandRight].Position.Z < body.Joints[JointType.ShoulderRight].Position.Z)
             {
                 // right hand below head height and hand higher than elbow
-                if (body.Joints[JointType.HandRight].Position.Y < body.Joints[JointType.Head].Position.Y && body.Joints[JointType.HandRight].Position.Y > body.Joints[JointType.ElbowRight].Position.Y)
+                if (body.Joints[JointType.HandRight].Position.X > body.Joints[JointType.ShoulderRight].Position.X)
                 {
                     // right hand right of right shoulder
-                    if (body.Joints[JointType.HandRight].Position.X > body.Joints[JointType.ShoulderRight].Position.X)
+                    if (body.Joints[JointType.HandRight].Position.Y > body.Joints[JointType.ElbowRight].Position.Y)
                     {
                         return GesturePartResult.Succeeded;
                     }
@@ -78,13 +78,13 @@ namespace LightBuzz.Vitruvius.Gestures
         public GesturePartResult Update(Body body)
         {
             // right hand in front of right shoulder
-            if (body.Joints[JointType.HandRight].Position.Z < body.Joints[JointType.ElbowRight].Position.Z && body.Joints[JointType.HandRight].Position.Y < body.Joints[JointType.SpineShoulder].Position.Y)
+            if (body.Joints[JointType.HandRight].Position.Z < body.Joints[JointType.ElbowRight].Position.Z)
             {
                 // right hand below right elbow
-                if (body.Joints[JointType.HandRight].Position.Y < body.Joints[JointType.ElbowRight].Position.Y)
+                if (body.Joints[JointType.HandRight].Position.X > body.Joints[JointType.HipRight].Position.X)
                 {
                     // right hand right of right shoulder
-                    if (body.Joints[JointType.HandRight].Position.X > body.Joints[JointType.HipRight].Position.X)
+                    if (body.Joints[JointType.HandRight].Position.Y < body.Joints[JointType.ShoulderRight].Position.Y && body.Joints[JointType.HandRight].Position.Y > body.Joints[JointType.HipRight].Position.Y)
                     {
                         return GesturePartResult.Succeeded;
                     }
@@ -109,13 +109,13 @@ namespace LightBuzz.Vitruvius.Gestures
         public GesturePartResult Update(Body body)
         {
             // //Right hand in front of right Shoulder
-            if (body.Joints[JointType.HandRight].Position.Z < body.Joints[JointType.ElbowRight].Position.Z && body.Joints[JointType.HandRight].Position.Y < body.Joints[JointType.SpineShoulder].Position.Y)
+            if (body.Joints[JointType.HandRight].Position.Z < body.Joints[JointType.ElbowRight].Position.Z)
             {
                 // right hand below hip
-                if (body.Joints[JointType.HandRight].Position.Y < body.Joints[JointType.HipRight].Position.Y)
+                if (body.Joints[JointType.HandRight].Position.X > body.Joints[JointType.HipRight].Position.X)
                 {
                     // right hand right of right shoulder
-                    if (body.Joints[JointType.HandRight].Position.X > body.Joints[JointType.HipRight].Position.X)
+                    if (body.Joints[JointType.HandRight].Position.Y < body.Joints[JointType.HipRight].Position.Y && body.Joints[JointType.HandRight].Position.Y < body.Joints[JointType.ElbowRight].Position.Y)
                     {
                         return GesturePartResult.Succeeded;
                     }

@@ -84,6 +84,42 @@ namespace LightBuzz.Vitruvius
         /// <summary>
         /// Both hands extended farther from the chest.
         /// </summary>
-        ZoomOut
+        ZoomOut,
+
+        /// <summary>
+        /// Close right hand near the right shoulder.
+        /// </summary>
+        HandCloseRight,
+
+        /// <summary>
+        /// Close left hand near the left shoulder.
+        /// </summary>
+        HandCloseLeft,
+
+        /// <summary>
+        /// rope right hand in the clockwise direction.
+        /// </summary>
+        HandRopeClockwiseRight,
+
+        /// <summary>
+        /// rope right hand in the anticlockwise direction.
+        /// </summary>
+        HandRopeAnticlockwiseRight,
+
+        /// <summary>
+        /// Close right hand and push to the front.
+        /// </summary>
+        ForwordPushRight,
+
+        /// <summary>
+        /// Close left hand and push to the front.
+        /// </summary>
+        ForwordPushLeft,
+
+        /// <summary>
+        /// Close right hand and pull down.
+        /// </summary>
+        HandClosePullDownRigth
+
     }
 }

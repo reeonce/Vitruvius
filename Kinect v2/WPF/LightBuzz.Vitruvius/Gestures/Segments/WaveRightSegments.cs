@@ -76,7 +76,7 @@ namespace LightBuzz.Vitruvius.Gestures
         public GesturePartResult Update(Body body)
         {
             // Hand above elbow
-            if (body.Joints[JointType.HandRight].Position.Y > body.Joints[JointType.ElbowRight].Position.Y)
+            if ((body.HandRightState == HandState.Open || body.HandRightState == HandState.Lasso) && body.Joints[JointType.HandRight].Position.Y > body.Joints[JointType.ElbowRight].Position.Y)
             {
                 // Hand left of elbow
                 if (body.Joints[JointType.HandRight].Position.X < body.Joints[JointType.ElbowRight].Position.X)

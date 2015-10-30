@@ -201,6 +201,41 @@ namespace LightBuzz.Vitruvius
                     segments[1] = new ZoomSegment2();
                     segments[2] = new ZoomSegment1();
                     break;
+                case GestureType.HandCloseRight:
+                    int frameCount = 2;
+                    segments = new IGestureSegment[frameCount];
+                    for (int i = 0; i < frameCount; i++)
+                    {
+                        segments[i] = new HandCloseRightSegment();
+                    }
+                    break;
+                case GestureType.HandCloseLeft:
+                    frameCount = 2;
+                    segments = new IGestureSegment[frameCount];
+                    for (int i = 0; i < frameCount; i++)
+                    {
+                        segments[i] = new HandCloseLeftSegment();
+                    }
+                    break;
+                case GestureType.ForwordPushRight:
+                    segments = new IGestureSegment[2];
+                    segments[0] = new ForwardRightSegment1();
+                    segments[1] = new ForwardRightSegment2();
+                    break;
+                case GestureType.HandRopeAnticlockwiseRight:
+                    segments = new IGestureSegment[3];
+                    segments[0] = new HandRopeRightBlowSegment();
+                    segments[1] = new HandRopeRightBehindSegment();
+                    segments[2] = new HandRopeRightAboveSegment();
+                    segments[2] = new HandRopeRightFrontSegment();
+                    break;
+                case GestureType.HandRopeClockwiseRight:
+                    segments = new IGestureSegment[3];
+                    segments[0] = new HandRopeRightBlowSegment();
+                    segments[1] = new HandRopeRightFrontSegment();
+                    segments[2] = new HandRopeRightAboveSegment();
+                    segments[2] = new HandRopeRightBehindSegment();
+                    break;
                 default:
                     break;
             }
