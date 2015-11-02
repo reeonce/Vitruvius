@@ -162,7 +162,7 @@ namespace LightBuzz.Vitruvius
                     segments[2] = new SwipeUpSegment3();
                     break;
                 case GestureType.WaveLeft:
-                    segments = new IGestureSegment[6];
+                    segments = new IGestureSegment[4];
 
                     WaveLeftSegment1 waveLeftSegment1 = new WaveLeftSegment1();
                     WaveLeftSegment2 waveLeftSegment2 = new WaveLeftSegment2();
@@ -171,11 +171,9 @@ namespace LightBuzz.Vitruvius
                     segments[1] = waveLeftSegment2;
                     segments[2] = waveLeftSegment1;
                     segments[3] = waveLeftSegment2;
-                    segments[4] = waveLeftSegment1;
-                    segments[5] = waveLeftSegment2;
                     break;
                 case GestureType.WaveRight:
-                    segments = new IGestureSegment[6];
+                    segments = new IGestureSegment[4];
 
                     WaveRightSegment1 waveRightSegment1 = new WaveRightSegment1();
                     WaveRightSegment2 waveRightSegment2 = new WaveRightSegment2();
@@ -184,8 +182,6 @@ namespace LightBuzz.Vitruvius
                     segments[1] = waveRightSegment2;
                     segments[2] = waveRightSegment1;
                     segments[3] = waveRightSegment2;
-                    segments[4] = waveRightSegment1;
-                    segments[5] = waveRightSegment2;
                     break;
                 case GestureType.ZoomIn:
                     segments = new IGestureSegment[3];
@@ -219,22 +215,22 @@ namespace LightBuzz.Vitruvius
                     break;
                 case GestureType.ForwordPushRight:
                     segments = new IGestureSegment[2];
-                    segments[0] = new ForwardRightSegment1();
-                    segments[1] = new ForwardRightSegment2();
+                    segments[0] = new ForwardPushRightSegment1();
+                    segments[1] = new ForwardPushRightSegment2();
                     break;
-                case GestureType.HandRopeAnticlockwiseRight:
+                case GestureType.HandCircleAnticlockwiseRight:
                     segments = new IGestureSegment[3];
-                    segments[0] = new HandRopeRightBlowSegment();
-                    segments[1] = new HandRopeRightBehindSegment();
-                    segments[2] = new HandRopeRightAboveSegment();
-                    segments[2] = new HandRopeRightFrontSegment();
+                    segments[0] = new HandCircleRightBlowSegment();
+                    segments[1] = new HandCircleRightBehindSegment();
+                    segments[2] = new HandCircleRightAboveSegment();
+                    segments[2] = new HandCircleRightFrontSegment();
                     break;
-                case GestureType.HandRopeClockwiseRight:
+                case GestureType.HandCircleClockwiseRight:
                     segments = new IGestureSegment[3];
-                    segments[0] = new HandRopeRightBlowSegment();
-                    segments[1] = new HandRopeRightFrontSegment();
-                    segments[2] = new HandRopeRightAboveSegment();
-                    segments[2] = new HandRopeRightBehindSegment();
+                    segments[0] = new HandCircleRightBlowSegment();
+                    segments[1] = new HandCircleRightFrontSegment();
+                    segments[2] = new HandCircleRightAboveSegment();
+                    segments[2] = new HandCircleRightBehindSegment();
                     break;
                 default:
                     break;

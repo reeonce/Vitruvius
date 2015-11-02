@@ -44,7 +44,7 @@ namespace LightBuzz.Vitruvius
         /// <summary>
         /// The window size.
         /// </summary>
-        readonly int WINDOW_SIZE = 50;
+        readonly int WINDOW_SIZE = 60;
 
         /// <summary>
         /// The maximum number of frames allowed for a paused gesture.

@@ -93,9 +93,9 @@
     <Compile Include="Gestures\IGestureSegment.cs" />
     <Compile Include="Gestures\NamespaceDoc.cs" />
     <Compile Include="Gestures\Segments\HandCloseLeftSegments.cs" />
-    <Compile Include="Gestures\Segments\ForwardRightSegments.cs" />
+    <Compile Include="Gestures\Segments\ForwardPushRightSegments.cs" />
     <Compile Include="Gestures\Segments\HandCloseRightSegments.cs" />
-    <Compile Include="Gestures\Segments\HandRopeRightSegments.cs" />
+    <Compile Include="Gestures\Segments\HandCircleRightSegments.cs" />
     <Compile Include="Gestures\Segments\JoinedHandsSegment.cs" />
     <Compile Include="Gestures\Segments\MenuSegments.cs" />
     <Compile Include="Gestures\Segments\SwipeDownSegments.cs" />

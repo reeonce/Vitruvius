@@ -7,7 +7,7 @@ using Microsoft.Kinect;
 
 namespace LightBuzz.Vitruvius.Gestures
 {
-    class ForwardRightSegment1 : IGestureSegment
+    class ForwardPushRightSegment1 : IGestureSegment
     {
         /// <summary>
         /// Updates the current gesture.
@@ -34,7 +34,7 @@ namespace LightBuzz.Vitruvius.Gestures
         }
     }
 
-    class ForwardRightSegment2 : IGestureSegment
+    class ForwardPushRightSegment2 : IGestureSegment
     {
         /// <summary>
         /// Updates the current gesture.
@@ -43,21 +43,20 @@ namespace LightBuzz.Vitruvius.Gestures
         /// <returns>A GesturePartResult based on whether the gesture part has been completed.</returns>
         public GesturePartResult Update(Body body)
         {
-
-            if (body.HandRightState == HandState.Closed)
+            if (body.Joints[JointType.HandRight].Position.X > body.Joints[JointType.ShoulderRight].Position.X)
             {
                 // right hand on top right of shoulder
-                if (body.Joints[JointType.HandRight].Position.X > body.Joints[JointType.ShoulderRight].Position.X)
+                if (body.HandRightState == HandState.Closed)
                 {
                     CameraSpacePoint spineShoulderPosition = body.Joints[JointType.SpineShoulder].Position;
                     CameraSpacePoint spineBasePosition = body.Joints[JointType.SpineBase].Position;
-                    double bodyHeight = spineShoulderPosition.lengthTo(spineBasePosition);
-                    if (body.Joints[JointType.HandRight].Position.Z < body.Joints[JointType.ShoulderRight].Position.Z - bodyHeight * 0.8)
+                    double bodyHeight = spineShoulderPosition.Y - spineBasePosition.Y;
+                    if (body.Joints[JointType.HandRight].Position.Z < body.Joints[JointType.ShoulderRight].Position.Z - bodyHeight * 0.85)
                     {
                         return GesturePartResult.Succeeded;
                     }
-                    return GesturePartResult.Undetermined;
                 }
+                return GesturePartResult.Undetermined;
             }
             return GesturePartResult.Failed;
         }

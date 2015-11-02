@@ -99,12 +99,12 @@ namespace LightBuzz.Vitruvius
         /// <summary>
         /// rope right hand in the clockwise direction.
         /// </summary>
-        HandRopeClockwiseRight,
+        HandCircleClockwiseRight,
 
         /// <summary>
         /// rope right hand in the anticlockwise direction.
         /// </summary>
-        HandRopeAnticlockwiseRight,
+        HandCircleAnticlockwiseRight,
 
         /// <summary>
         /// Close right hand and push to the front.

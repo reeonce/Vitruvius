@@ -7,7 +7,7 @@ using Microsoft.Kinect;
 
 namespace LightBuzz.Vitruvius.Gestures
 {
-    class HandRopeRightBehindSegment : IGestureSegment
+    class HandCircleRightBehindSegment : IGestureSegment
     {
         /// <summary>
         /// Updates the current gesture.
@@ -24,7 +24,7 @@ namespace LightBuzz.Vitruvius.Gestures
                 CameraSpacePoint leftShoulderPosition = body.Joints[JointType.ShoulderLeft].Position;
                 CameraSpacePoint rightShoulderPosition = body.Joints[JointType.ShoulderRight].Position;
                 double shoulderWidth = leftShoulderPosition.lengthTo(rightShoulderPosition);
-                if (body.Joints[JointType.HandRight].Position.Z > body.Joints[JointType.ElbowRight].Position.Z + shoulderWidth * 0.1)
+                if (body.Joints[JointType.HandRight].Position.Z > body.Joints[JointType.ElbowRight].Position.Z + shoulderWidth * 0.05)
                 {
                     return GesturePartResult.Succeeded;
                 }
@@ -34,7 +34,7 @@ namespace LightBuzz.Vitruvius.Gestures
         }
     }
 
-    class HandRopeRightAboveSegment : IGestureSegment
+    class HandCircleRightAboveSegment : IGestureSegment
     {
         /// <summary>
         /// Updates the current gesture.
@@ -60,7 +60,7 @@ namespace LightBuzz.Vitruvius.Gestures
         }
     }
 
-    class HandRopeRightFrontSegment : IGestureSegment
+    class HandCircleRightFrontSegment : IGestureSegment
     {
         /// <summary>
         /// Updates the current gesture.
@@ -86,7 +86,7 @@ namespace LightBuzz.Vitruvius.Gestures
         }
     }
 
-    class HandRopeRightBlowSegment : IGestureSegment
+    class HandCircleRightBlowSegment : IGestureSegment
     {
         /// <summary>
         /// Updates the current gesture.
