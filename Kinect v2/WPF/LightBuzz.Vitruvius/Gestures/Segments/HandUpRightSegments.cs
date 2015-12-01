@@ -48,7 +48,7 @@ namespace LightBuzz.Vitruvius.Gestures
                     CameraSpacePoint spineShoulderPosition = body.Joints[JointType.SpineShoulder].Position;
                     CameraSpacePoint spineBasePosition = body.Joints[JointType.SpineBase].Position;
                     double bodyHeight = spineShoulderPosition.Y - spineBasePosition.Y;
-                    if (body.Joints[JointType.HandRight].Position.Y > body.Joints[JointType.ShoulderRight].Position.Y + bodyHeight * 0.85)
+                    if (body.Joints[JointType.HandRight].Position.Y > body.Joints[JointType.ShoulderRight].Position.Y + bodyHeight * 0.8)
                     {
                         return GesturePartResult.Succeeded;
                     }
