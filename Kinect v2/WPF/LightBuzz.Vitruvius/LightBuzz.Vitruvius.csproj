@@ -92,6 +92,8 @@
     <Compile Include="Gestures\GestureType.cs" />
     <Compile Include="Gestures\IGestureSegment.cs" />
     <Compile Include="Gestures\NamespaceDoc.cs" />
+    <Compile Include="Gestures\Segments\HandUpRightSegments.cs" />
+    <Compile Include="Gestures\Segments\HandCircleLeftSegments.cs" />
     <Compile Include="Gestures\Segments\HandCloseLeftSegments.cs" />
     <Compile Include="Gestures\Segments\ForwardPushRightSegments.cs" />
     <Compile Include="Gestures\Segments\HandCloseRightSegments.cs" />

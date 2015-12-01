@@ -107,6 +107,16 @@ namespace LightBuzz.Vitruvius
         HandCircleAnticlockwiseRight,
 
         /// <summary>
+        /// rope right hand in the clockwise direction.
+        /// </summary>
+        HandCircleClockwiseLeft,
+
+        /// <summary>
+        /// rope right hand in the anticlockwise direction.
+        /// </summary>
+        HandCircleAnticlockwiseLeft,
+
+        /// <summary>
         /// Close right hand and push to the front.
         /// </summary>
         ForwordPushRight,
@@ -119,7 +129,12 @@ namespace LightBuzz.Vitruvius
         /// <summary>
         /// Close right hand and pull down.
         /// </summary>
-        HandClosePullDownRigth
+        HandClosePullDownRigth,
+
+        /// <summary>
+        /// right hand up
+        /// </summary>
+        HandUpRight
 
     }
 }

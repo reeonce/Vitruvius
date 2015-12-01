@@ -232,6 +232,25 @@ namespace LightBuzz.Vitruvius
                     segments[2] = new HandCircleRightAboveSegment();
                     segments[2] = new HandCircleRightBehindSegment();
                     break;
+                case GestureType.HandCircleAnticlockwiseLeft:
+                    segments = new IGestureSegment[3];
+                    segments[0] = new HandCircleLeftBlowSegment();
+                    segments[1] = new HandCircleLeftBehindSegment();
+                    segments[2] = new HandCircleLeftAboveSegment();
+                    segments[2] = new HandCircleLeftFrontSegment();
+                    break;
+                case GestureType.HandCircleClockwiseLeft:
+                    segments = new IGestureSegment[3];
+                    segments[0] = new HandCircleRightBlowSegment();
+                    segments[1] = new HandCircleRightFrontSegment();
+                    segments[2] = new HandCircleRightAboveSegment();
+                    segments[2] = new HandCircleRightBehindSegment();
+                    break;
+                case GestureType.HandUpRight:
+                    segments = new IGestureSegment[2];
+                    segments[0] = new HandUpRightSegment1();
+                    segments[1] = new HandUpRightSegment2();
+                    break;
                 default:
                     break;
             }
