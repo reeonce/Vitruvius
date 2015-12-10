@@ -134,7 +134,12 @@ namespace LightBuzz.Vitruvius
         /// <summary>
         /// right hand up
         /// </summary>
-        HandUpRight
+        HandUpRight,
+
+        /// <summary>
+        /// fall down on ground and keep tens of seconds;
+        /// </summary>
+        FallDownOnGround,
 
     }
 }

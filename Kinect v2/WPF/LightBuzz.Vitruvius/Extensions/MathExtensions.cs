@@ -449,5 +449,24 @@ namespace LightBuzz.Vitruvius
         }
 
         #endregion
+
+        /// <summary>
+        /// Calculates the length of the specified 3-D point.
+        /// </summary>
+        /// <param name="plane">The normal of the plane.</param>
+        /// <param name="point">The specified 3-D point.</param>
+        /// <returns>The corresponding length, in meters.</returns>
+        /// 
+        public static double Length(this Vector4 plane, CameraSpacePoint point)
+        {
+            if (plane.X == 0 && plane.Y == 0 && plane.Z == 0)
+            {
+                return double.NaN;
+            }
+
+            double vectorLength = new Vector3D(plane.X, plane.Y, plane.Z).Length;
+
+            return (plane.X * point.X + plane.Y * point.Y + plane.Z * point.Z + plane.W) / vectorLength;
+        }
     }
 }
