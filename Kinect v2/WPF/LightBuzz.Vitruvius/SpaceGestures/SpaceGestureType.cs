@@ -37,8 +37,13 @@ namespace LightBuzz.Vitruvius
     public enum SpaceGestureType
     {
         /// <summary>
-        /// fall down on ground and keep tens of seconds;
+        /// fall down on ground;
         /// </summary>
         FallDownOnGround,
+
+        /// <summary>
+        /// lying on ground;
+        /// </summary>
+        LyingOnGround,
     }
 }

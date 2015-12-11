@@ -85,6 +85,7 @@
     <Compile Include="Extensions\MathExtensions.cs" />
     <Compile Include="Extensions\SerializationExtensions.cs" />
     <Compile Include="Extensions\UIExtensions.cs" />
+    <Compile Include="SpaceGestures\Segments\LyingOnFloorSegment.cs" />
     <Compile Include="SpaceGestures\SpaceGestureEventArgs.cs" />
     <Compile Include="Gestures\Gesture.cs" />
     <Compile Include="Gestures\GestureController.cs" />
@@ -110,7 +111,7 @@
     <Compile Include="Gestures\Segments\ZoomSegments.cs" />
     <Compile Include="SpaceGestures\ISpaceGestureSegment.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SpaceGestures\Segments\LyingOnFloorSegment .cs" />
+    <Compile Include="SpaceGestures\Segments\FallDownOnFloorSegments.cs" />
     <Compile Include="SpaceGestures\SpaceBody.cs" />
     <Compile Include="SpaceGestures\SpaceGesture.cs" />
     <Compile Include="SpaceGestures\SpaceGestureController.cs" />

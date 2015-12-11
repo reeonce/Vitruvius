@@ -80,29 +80,45 @@ namespace LightBuzz.Vitruvius
             if (_gestures.Where(g => g.GestureType == type).Count() > 0) return;
 
             ISpaceGestureSegment[] segments = null;
+            SpaceGesture gesture = null;
 
             // DEVELOPERS: If you add a new predefined gesture with a new GestureType,
             // simply add the proper segments to the switch statement here.
             switch (type)
             {
                 case SpaceGestureType.FallDownOnGround:
-                    segments = new ISpaceGestureSegment[60];
+                    segments = new ISpaceGestureSegment[3];
+
+                    FallDownOnFloorSegment1 segment1 = new FallDownOnFloorSegment1();
+                    FallDownOnFloorSegment2 segment2 = new FallDownOnFloorSegment2();
+                    FallDownOnFloorSegment3 segment3 = new FallDownOnFloorSegment3();
+
+                    segments[0] = segment1;
+                    segments[1] = segment2;
+                    segments[2] = segment3;
+
+                    gesture = new SpaceGesture(type, segments);
+                    gesture.WINDOW_SIZE = 100;
+                    break;
+                case SpaceGestureType.LyingOnGround:
+                    segments = new ISpaceGestureSegment[400];
 
                     LyingOnFloorSegment segment = new LyingOnFloorSegment();
-                    for (int i = 0; i < 20; i++)
+                    for (int i = 0; i < 400; i++)
                     {
                         segments[i] = segment;
                     }
+
+                    gesture = new SpaceGesture(type, segments);
+                    gesture.WINDOW_SIZE = 10;
                     break;
                 default:
                     break;
             }
 
-            if (segments != null)
+            if (gesture != null)
             {
-                SpaceGesture gesture = new SpaceGesture(type, segments);
                 gesture.GestureRecognized += OnGestureRecognized;
-
                 _gestures.Add(gesture);
             }
         }
