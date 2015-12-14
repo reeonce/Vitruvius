@@ -62,7 +62,7 @@ namespace LightBuzz.Vitruvius
                 originBodyLength = bodyHeight;
                 originKneeHeight = kneePosition.Y;
                 originFooterHeight = footerPosition.Y;
-                lyingMaxBodyHeight = (originKneeHeight + originFooterHeight) / 2;
+                lyingMaxBodyHeight = (0.9 * originKneeHeight + originFooterHeight * 0.1);
                 return GesturePartResult.Succeeded;
             }
             return GesturePartResult.Failed;

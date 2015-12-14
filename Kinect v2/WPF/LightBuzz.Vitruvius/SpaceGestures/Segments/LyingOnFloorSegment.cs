@@ -9,6 +9,13 @@ namespace LightBuzz.Vitruvius
 {
     class LyingOnFloorSegment : ISpaceGestureSegment
     {
+        public static IDictionary<ulong, LyingOnFloorSegment> previousSegments = new Dictionary<ulong, LyingOnFloorSegment>();
+
+        private DateTime updateTime;
+
+        private double totalLength = 0;
+        private int lengthCount = 0;
+
         /// <summary>
         /// Updates the current gesture.
         /// </summary>
@@ -18,13 +25,69 @@ namespace LightBuzz.Vitruvius
         {
             Body body = spaceBody.body;
 
-            CameraSpacePoint shoulderPosition = body.Joints[JointType.SpineShoulder].Position;
-            CameraSpacePoint corePosition = body.Joints[JointType.SpineBase].Position;
-            CameraSpacePoint headPosition = body.Joints[JointType.Head].Position;
+            LyingOnFloorSegment previousSegment = null;
 
-            if (Math.Abs(corePosition.X - FallDownOnFloorSegment3.lyingCorePosition.X) > FallDownOnFloorSegment1.originBodyLength)
+            if (previousSegments.Keys.Contains(body.TrackingId))
             {
-                return GesturePartResult.Failed;
+                previousSegment = previousSegments[body.TrackingId];
+            }
+
+            if (previousSegment != null)
+            {
+                if ((DateTime.Now - previousSegment.updateTime).TotalSeconds > 30)
+                {
+                    previousSegments[body.TrackingId] = null;
+                }
+                else
+                {
+                    totalLength = previousSegment.totalLength;
+                    lengthCount = previousSegment.lengthCount;
+                }
+            }
+
+            if (body.Joints[JointType.ShoulderLeft].TrackingState == TrackingState.Tracked && body.Joints[JointType.ShoulderRight].TrackingState == TrackingState.Tracked)
+            {
+                double shoulderWidth = body.Joints[JointType.ShoulderLeft].Position.Length(body.Joints[JointType.ShoulderRight].Position);
+                totalLength += shoulderWidth * 0.7;
+                lengthCount++;
+            }
+
+
+            if (body.Joints[JointType.AnkleLeft].TrackingState == TrackingState.Tracked && body.Joints[JointType.KneeLeft].TrackingState == TrackingState.Tracked)
+            {
+                double leftLegLength = body.Joints[JointType.AnkleLeft].Position.Length(body.Joints[JointType.KneeLeft].Position);
+                totalLength += leftLegLength * 0.7;
+                lengthCount++;
+            }
+
+            if (body.Joints[JointType.AnkleRight].TrackingState == TrackingState.Tracked && body.Joints[JointType.KneeRight].TrackingState == TrackingState.Tracked)
+            {
+                double rightLegLength = body.Joints[JointType.AnkleRight].Position.Length(body.Joints[JointType.KneeRight].Position);
+                totalLength += rightLegLength * 0.7;
+                lengthCount++;
+            }
+
+            if (body.Joints[JointType.WristLeft].TrackingState == TrackingState.Tracked && body.Joints[JointType.ElbowLeft].TrackingState == TrackingState.Tracked)
+            {
+                double leftHandLength = body.Joints[JointType.WristLeft].Position.Length(body.Joints[JointType.ElbowLeft].Position);
+                totalLength += leftHandLength;
+                lengthCount++;
+            }
+
+
+            if (body.Joints[JointType.WristRight].TrackingState == TrackingState.Tracked && body.Joints[JointType.ElbowRight].TrackingState == TrackingState.Tracked)
+            {
+                double rightHandLength = body.Joints[JointType.WristRight].Position.Length(body.Joints[JointType.ElbowRight].Position);
+                totalLength += rightHandLength;
+                lengthCount++;
+            }
+
+            updateTime = DateTime.Now;
+
+            double maxBodyHeight = 0;
+            if (lengthCount > 0)
+            {
+                maxBodyHeight = totalLength / lengthCount;
             }
 
             if (body.Joints[JointType.SpineShoulder].TrackingState != TrackingState.Tracked || body.Joints[JointType.SpineBase].TrackingState != TrackingState.Tracked)
@@ -32,12 +95,18 @@ namespace LightBuzz.Vitruvius
                 return GesturePartResult.Undetermined;
             }
 
-            if (shoulderPosition.Y < FallDownOnFloorSegment1.lyingMaxBodyHeight && corePosition.Y < FallDownOnFloorSegment1.lyingMaxBodyHeight && headPosition.Y < FallDownOnFloorSegment1.originKneeHeight)
+            CameraSpacePoint shoulderPosition = body.Joints[JointType.SpineShoulder].Position;
+            CameraSpacePoint corePosition = body.Joints[JointType.SpineBase].Position;
+
+            double coreHeight = spaceBody.floorPlane.Length(corePosition);
+            double shoulderHeight = spaceBody.floorPlane.Length(shoulderPosition);
+
+            if (coreHeight < maxBodyHeight && shoulderHeight < maxBodyHeight)
             {
+                previousSegments[body.TrackingId] = this;
                 return GesturePartResult.Succeeded;
             }
-            else if (shoulderPosition.Y > FallDownOnFloorSegment1.lyingMaxBodyHeight && corePosition.Y > FallDownOnFloorSegment1.lyingMaxBodyHeight
-                && (shoulderPosition.Y - FallDownOnFloorSegment1.originFooterHeight) < 0.6 * FallDownOnFloorSegment1.originBodyLength)
+            else if (coreHeight < maxBodyHeight * 1.5 && shoulderHeight < maxBodyHeight * 1.5)
             {
                 return GesturePartResult.Undetermined;
             }

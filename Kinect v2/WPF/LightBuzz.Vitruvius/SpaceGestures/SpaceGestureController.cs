@@ -101,16 +101,16 @@ namespace LightBuzz.Vitruvius
                     gesture.WINDOW_SIZE = 100;
                     break;
                 case SpaceGestureType.LyingOnGround:
-                    segments = new ISpaceGestureSegment[400];
+                    segments = new ISpaceGestureSegment[100];
 
                     LyingOnFloorSegment segment = new LyingOnFloorSegment();
-                    for (int i = 0; i < 400; i++)
+                    for (int i = 0; i < 100; i++)
                     {
                         segments[i] = segment;
                     }
 
                     gesture = new SpaceGesture(type, segments);
-                    gesture.WINDOW_SIZE = 10;
+                    gesture.WINDOW_SIZE = 40;
                     break;
                 default:
                     break;
