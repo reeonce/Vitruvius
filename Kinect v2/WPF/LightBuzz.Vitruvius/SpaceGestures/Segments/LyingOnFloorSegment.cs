@@ -4,11 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Kinect;
+using NLog;
 
 namespace LightBuzz.Vitruvius
 {
     class LyingOnFloorSegment : ISpaceGestureSegment
     {
+        private static Logger logger = LogManager.GetCurrentClassLogger();
+
         public static IDictionary<ulong, LyingOnFloorSegment> previousSegments = new Dictionary<ulong, LyingOnFloorSegment>();
 
         private DateTime updateTime;
@@ -98,10 +101,15 @@ namespace LightBuzz.Vitruvius
             CameraSpacePoint shoulderPosition = body.Joints[JointType.SpineShoulder].Position;
             CameraSpacePoint corePosition = body.Joints[JointType.SpineBase].Position;
 
+            if (spaceBody.floorPlane.X == 0 && spaceBody.floorPlane.Y == 0 && spaceBody.floorPlane.Z == 0)
+            {
+                return GesturePartResult.Undetermined;
+            }
+
             double coreHeight = spaceBody.floorPlane.Length(corePosition);
             double shoulderHeight = spaceBody.floorPlane.Length(shoulderPosition);
 
-            if (coreHeight < maxBodyHeight && shoulderHeight < maxBodyHeight)
+            if (coreHeight < maxBodyHeight && shoulderHeight < maxBodyHeight && coreHeight > -maxBodyHeight * 0.2 && shoulderHeight > -maxBodyHeight * 0.2)
             {
                 previousSegments[body.TrackingId] = this;
                 return GesturePartResult.Succeeded;

@@ -49,6 +49,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\..\..\Program Files\Microsoft SDKs\Kinect\v2.0-DevPreview1404\Assemblies\Microsoft.Kinect.dll</HintPath>
     </Reference>
+    <Reference Include="NLog">
+      <HintPath>..\..\..\..\packages\NLog.4.2.3\lib\net45\NLog.dll</HintPath>
+    </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
@@ -85,6 +88,7 @@
     <Compile Include="Extensions\MathExtensions.cs" />
     <Compile Include="Extensions\SerializationExtensions.cs" />
     <Compile Include="Extensions\UIExtensions.cs" />
+    <Compile Include="NLogger.cs" />
     <Compile Include="SpaceGestures\Segments\LyingOnFloorSegment.cs" />
     <Compile Include="SpaceGestures\SpaceGestureEventArgs.cs" />
     <Compile Include="Gestures\Gesture.cs" />
@@ -135,6 +139,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Gestures\LICENSE" />
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

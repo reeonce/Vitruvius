@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Kinect;
+using NLog;
 
 namespace LightBuzz.Vitruvius
 {
@@ -12,6 +13,8 @@ namespace LightBuzz.Vitruvius
     /// </summary>
     public class SpaceGestureController: BaseController<SpaceBody>
     {
+        private static Logger logger = LogManager.GetCurrentClassLogger();
+
         #region Members
 
         /// <summary>
